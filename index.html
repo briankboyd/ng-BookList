@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ng-BookList</title>
+	<link rel="stylesheet" href="dist/public/css/famous-angular.min.css">
+	<link rel="stylesheet" type="text/css" href="dist/public/css/app.css">
+</head>
+<body ng-app="app">
+	<fa-app ng-controller='layoutCtrl' id="app">
+    <fa-header-footer-layout>
+
+      <fa-modifier fa-size="[undefined, 50]">
+        <fa-surface fa-background-color="'#dc322f'">
+          Header
+        </fa-surface>
+      </fa-modifier>
+
+      <fa-grid-layout fa-options="myGridLayoutOptions">
+        <fa-modifier ng-repeat="item in list">
+          <fa-surface fa-background-color="item.bgColor">
+            {{item.content}}
+          </fa-surface>
+        </fa-modifier>
+      </fa-grid-layout>
+
+      <fa-modifier fa-size="[undefined, 75]">
+        <fa-surface fa-background-color="'#859900'">
+          Footer
+        </fa-surface>
+      </fa-modifier>
+
+    </fa-header-footer-layout>
+  </fa-app>
+
+
+  <script src="src/public/vendor/js/angular.min.js"></script>
+  <script src="src/public/vendor/js/famous-global.min.js"></script>
+  <script src="src/public/vendor/js/famous-angular.min.js"></script>
+  <script src="dist/public/js/app.js"></script>
+</body>
+</html>
