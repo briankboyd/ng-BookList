@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('js', function () {
-  gulp.src(['src/public/**/*.module.js', 'src/public/**/*.js'])
+  gulp.src(['src/public/**/app.module.js', 'src/public/**/*.module.js', 'src/public/**/*.js'])
     .pipe(sourcemaps.init())
       .pipe(concat('app.js'))
       .pipe(ngAnnotate())
