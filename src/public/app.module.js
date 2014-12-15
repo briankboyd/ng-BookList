@@ -1,3 +1,1 @@
-angular.module('app', [
-      				'famous.angular',
-      				'app.layout']);
+angular.module('app', ['famous.angular', 'app.layout']);
