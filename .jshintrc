@@ -1,0 +1,13 @@
+{	
+	"noempty": true, 
+	"noarg": true, 
+	"eqeqeq": true, 
+	"bitwise": true,
+	"curly": true,
+	"nonew": true,
+	"forin": true,
+	"browser": true,	
+	"undef": true,
+	"unused": true,
+	"globals": { "angular": false }
+}
