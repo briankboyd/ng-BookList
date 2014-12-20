@@ -1,0 +1,11 @@
+{
+  "name": "ng-booklist",
+  "version": "0.0.1",
+  "homepage": "https://github.com/briankboyd/ng-BookList",
+  "description": "displays a list of files, in my case some books from a google drive folder",
+  "authors": [
+    "Brian Boyd"
+  ],
+  "license": "MIT",
+  "private": true,  
+}
