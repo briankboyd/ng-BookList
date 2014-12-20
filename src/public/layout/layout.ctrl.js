@@ -13,14 +13,4 @@ angular.module('app.layout')
       {content: "cool!", bgColor: "#268bd2"}
     ];
 
-  class View {
-    constructor(options) {
-      this.model = options.model;
-      this.template = options.template;
-    }
-
-    render() {
-      return _.template(this.template, this.model.toObject());
-    }
-  }
 });

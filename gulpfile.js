@@ -8,6 +8,9 @@ var jshint = require('gulp-jshint');
 var jshint_stylish = require('jshint-stylish');
 var wrap = require('gulp-wrap');
 var browsersync = require('browser-sync');
+var less = require('gulp-less');
+var rename = require('gulp-rename');
+var minifycss = require('gulp-minify-css');
 
 gulp.task('browser-sync', function() {
 	browsersync({
@@ -35,6 +38,15 @@ gulp.task('js', function () {
     .pipe(gulp.dest('./dist/public/js'))    
 });
 
-gulp.task('watch', ['js'], function () {
+gulp.task('less', function () {
+        gulp.src(['src/public/**/*.less'])
+        .pipe(less())
+        .pipe(minifycss())
+        .pipe(rename('app.min.css'))
+        .pipe(gulp.dest('./dist/public/css'));
+});
+
+gulp.task('watch', ['js', 'less'], function () {
   gulp.watch('src/public/**/*.js', ['js']);
+  gulp.watch('src/public/**/*.less', ['less']);
 });
