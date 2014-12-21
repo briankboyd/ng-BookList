@@ -8,10 +8,12 @@
   ],
   "private": true,
   "devDependencies": {
-    "famous-angularjs.0.5.0": "https://raw.githubusercontent.com/Famous/famous-angular/0.5.0/dist/famous-angular.min.js",
-    "famous-angularcss.0.5.0": "https://raw.githubusercontent.com/Famous/famous-angular/0.5.0/dist/famous-angular.min.css",
+    "famous-angular.js.0.5.0": "https://raw.githubusercontent.com/Famous/famous-angular/0.5.0/dist/famous-angular.min.js",
+    "famous-angular.css.0.5.0": "https://raw.githubusercontent.com/Famous/famous-angular/0.5.0/dist/famous-angular.min.css",
     "famous-global.js.0.3": "http://code.famo.us/famous/0.3/famous-global.min.js",
     "traceur-runtime.js.1.0.0": "https://raw.githubusercontent.com/google/traceur-compiler/v1.0.0/src/runtime/runtime.js",
-    "angular.js.1.3.5": "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"
+    "angular.js.1.3.5": "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js",
+    "angular.js.1.3.5.map": "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.5/angular-animate.min.js.map",
+    "ui-router.js.0.2.13": "https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"
   }
 }

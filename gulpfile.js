@@ -11,42 +11,61 @@ var browsersync = require('browser-sync');
 var less = require('gulp-less');
 var rename = require('gulp-rename');
 var minifycss = require('gulp-minify-css');
+var webserver = require('gulp-webserver');
+
+var srcPaths = {
+    js: ['src/public/**/app.module.js', 'src/public/**/*.module.js', 'src/public/**/*.js'],
+    css: ['src/public/**/*.less']
+};
+
+var distPaths = {
+  js: './dist/public/js',
+  css: './dist/public/css'
+};
+
+gulp.task('webserver', function() {
+  gulp.src('./')
+    .pipe(webserver({      
+      host: 'localhost',
+      port: 6969,
+      fallback: 'index.html',
+      open: true
+    }));
+});
 
 gulp.task('browser-sync', function() {
 	browsersync({
-		proxy: 'localhostd',
-		port: 3000
+		proxy: 'localhost:6969',
 	});
 });
 
 
-gulp.task('browsersync-reload', function () {
-    browsersync.reload();
-});
-
 gulp.task('js', function () {
-  gulp.src(['src/public/**/app.module.js', 'src/public/**/*.module.js', 'src/public/**/*.js'])
+  gulp.src(srcPaths.js)
 	.pipe(jshint())
     .pipe(jshint.reporter(jshint_stylish))  	
     .pipe(sourcemaps.init())    
     .pipe(traceur())
-    .pipe(concat('app.js'))
+    .pipe(concat('app.min.js'))
     .pipe(ngAnnotate())    
     .pipe(sourcemaps.write())
     .pipe(wrap('(function(){\n"use strict";\n<%= contents %>\n})();'))
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/public/js'))    
+    .pipe(gulp.dest(distPaths.js))
 });
 
 gulp.task('less', function () {
-        gulp.src(['src/public/**/*.less'])
+        gulp.src(srcPaths.css)
         .pipe(less())
         .pipe(minifycss())
         .pipe(rename('app.min.css'))
-        .pipe(gulp.dest('./dist/public/css'));
+        .pipe(gulp.dest(distPaths.css))
+        .pipe(browsersync.reload({stream:true}));
 });
 
 gulp.task('watch', ['js', 'less'], function () {
-  gulp.watch('src/public/**/*.js', ['js']);
-  gulp.watch('src/public/**/*.less', ['less']);
+  gulp.watch(srcPaths.js, ['js', browsersync.reload]);
+  gulp.watch(srcPaths.css, ['less']);
 });
+
+gulp.task('default', ['browser-sync','watch', 'webserver']);

@@ -12,5 +12,5 @@ angular.module('app.layout')
       {content: "is", bgColor: "#6c71c4"},
       {content: "cool!", bgColor: "#268bd2"}
     ];
-
+    
 });
